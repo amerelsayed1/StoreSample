@@ -1,5 +1,5 @@
 
-import '../model/articles.dart';
+import 'articles.dart';
 
 class News {
   String status;
