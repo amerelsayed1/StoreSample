@@ -50,27 +50,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        theme: ThemeData(primarySwatch: Colors.deepPurple),
-        home: Scaffold(
-            appBar: AppBar(
-                title: Text('Long List App')),
-            body: Center(
-              child: FutureBuilder<News>(
-                future: news,
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    return Column(children: [
-                      Expanded(child: Product(snapshot.data.articles))
-                    ]);
-                  } else if (snapshot.hasError) {
-                    return Text("${snapshot.error}");
-                  }
+    return Scaffold(
+        appBar: AppBar(title: Text('Long List App')),
+        body: Center(
+          child: FutureBuilder<News>(
+            future: news,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Column(children: [
+                  Expanded(child: Product(snapshot.data.articles))
+                ]);
+              } else if (snapshot.hasError) {
+                return Text("${snapshot.error}");
+              }
 
-                  // By default, show a loading spinner.
-                  return CircularProgressIndicator();
-                },
-              ),
-            )));
+              // By default, show a loading spinner.
+              return CircularProgressIndicator();
+            },
+          ),
+        ));
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../details/ProductDetail.dart';
 import '../model/articles.dart';
 import '../details/ProductDetail.dart';
 
@@ -14,11 +15,12 @@ class Product extends StatelessWidget {
       onTap: () {
         print("Test " + index.toString());
         /*For navigation Between Screens */
-        //Navigator.pushNamed(context, '/detailsScreen');
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => new ProductDetails(data[index])));
+        Navigator.pushNamed(context, '/detailsScreen',
+            arguments: PArguments(data[index]));
+//        Navigator.push(
+//            context,
+//            MaterialPageRoute(
+//                builder: (context) => new ProductDetails(articles:data[index])));
       },
       child: Card(
         child: Column(
