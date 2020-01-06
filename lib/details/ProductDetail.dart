@@ -28,6 +28,7 @@ class ProductDetails extends StatelessWidget {
             Container(
               margin: EdgeInsets.all(5),
               child: Text(articles.description,
+                  maxLines: 4,
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontWeight: FontWeight.bold)),

@@ -15,13 +15,16 @@ class Product extends StatelessWidget {
         print("Test " + index.toString());
         /*For navigation Between Screens */
         //Navigator.pushNamed(context, '/detailsScreen');
-        Navigator.push(context, MaterialPageRoute(builder: (context) => new ProductDetails(data[index])));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => new ProductDetails(data[index])));
       },
       child: Card(
         child: Column(
           children: <Widget>[
             FadeInImage.assetNetwork(
-                placeholder: 'assets/foods.jpg', image: data[index].urlToImage),
+                placeholder: 'assets/food.jpg', image: data[index].urlToImage),
             Container(
               margin: EdgeInsets.all(10),
               child: Text(data[index].title, textAlign: TextAlign.center),
